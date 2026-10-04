@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Swissplore Walk</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      text-align: center;
+      padding: 50px 20px;
+      background: #f7f7f7;
+      color: #222;
+    }
+    .card {
+      max-width: 500px;
+      margin: auto;
+      background: white;
+      padding: 35px;
+      border-radius: 18px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+    h1 { margin-bottom: 10px; }
+    p { color: #555; line-height: 1.5; }
+    a.button {
+      display: block;
+      margin: 15px auto;
+      padding: 14px 20px;
+      max-width: 280px;
+      border-radius: 10px;
+      background: #176b16;
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Swissplore</h1>
+    <p>Entdecke diese Wanderung mit Swissplore.</p>
+
+    <a class="button" id="openApp" href="#">
+      In Swissplore öffnen
+    </a>
+
+    <a class="button"
+       href="https://apps.apple.com/app/id6802214601">
+      Swissplore im App Store
+    </a>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get("id");
+
+    if (id) {
+      document.getElementById("openApp").href =
+        "swissplore://swissplore.com/walk?id=" + encodeURIComponent(id);
+    }
+  </script>
+</body>
+</html>
